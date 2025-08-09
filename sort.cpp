@@ -1,22 +1,23 @@
 #include <iostream>
-
 using namespace std;
 
-int main() {
-    int N[] = {1, 4, 7, 8, 3, 2, 5, 6, 0};
-    int largo  = sizeof(N) / sizeof(N[0]);
-    for (int i = 0; i < largo ; i++) {
-        int m = i;
-        for (int j = i + 1; j < largo ; j++) {
-            if (N[j] < N[m]) {
-                m = j;
-            }
-        }
-      swap(N[m],N[i]);
-    }
+void sort(int *list, int Largo) {
+    for (int i = 0; i < Largo - 1; i++) {
+        for (int j = i+ 1; j < Largo  ; j++) {
+           if (list[j] < list[i]) {
+               swap(list[i], list[j]);
+           }
+       }
+   }
+}
 
-    for (int i = 0; i < largo ; i++) {
-        cout << N[i] << " ";
+int main() {
+    int list[] = {5, 2, 9, 1, 5, 6};
+    int largo = sizeof(list) / sizeof(list[0]);
+    sort(list, largo);
+    cout << "Lista ordenada: ";
+    for (int i = 0; i < largo; i++) {
+        cout << list[i] << " ";
     }
-    return 0;
+  return 0;
 }
